@@ -1,0 +1,181 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](color_gray)\
+$os\
+$username\
+[](bg:color_orange fg:color_gray)\
+$directory\
+[](fg:color_orange bg:color_green)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:color_green bg:color_aqua)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:color_aqua bg:color_yellow)\
+$aws\
+[](fg:color_yellow bg:color_blue)\
+$kubernetes\
+[](fg:color_blue bg:color_black)\
+$time\
+[ ](fg:color_black)\
+$status\
+$line_break$character"""
+
+palette = 'tokyonight_day'
+
+[palettes.tokyonight_day]
+color_white = '#e8e9ec'
+color_black = '#33374c'
+color_gray = '#8389a3'
+color_gray2 = '#cad0de'
+color_blue = '#2d539e'
+color_aqua = '#3f83a6'
+color_green = '#668e3d'
+color_orange = '#c57339'
+color_red = '#cc517a'
+color_yellow = '#d79921'
+
+[os]
+disabled = false
+style = "bg:color_gray fg:color_white"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:color_gray fg:color_white"
+style_root = "bg:color_gray fg:color_white"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color_white bg:color_orange"
+format = "[   $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:color_green"
+format = '[[ $symbol $branch ](fg:color_white bg:color_green)]($style)'
+
+[git_commit]
+style = "bg:color_green"
+tag_disabled = false
+tag_symbol = " "
+format = '[[ $tag ](fg:color_white bg:color_green)]($style)'
+
+[git_status]
+style = "bg:color_green"
+format = '[[($all_status$ahead_behind )](fg:color_white bg:color_green)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol( $version) ](fg:color_white bg:color_aqua)]($style)'
+
+[aws]
+symbol = "󰸏"
+style = 'bg:color_yellow'
+format = '[[ $symbol( $profile )(\($region\) )](fg:color_white bg:color_yellow)]($style)'
+[aws.region_aliases]
+ap-northeast-1 = 'Tokyo: ap-northeast-1'
+us-east-1 = 'Virginia: us-east-1'
+
+[kubernetes]
+disabled = false
+symbol = "󱃾"
+style = "bg:color_blue"
+format = '[[ $symbol( $context )(\($namespace\) )](fg:color_white bg:color_blue)]($style)'
+
+[time]
+disabled = false
+time_format = "%Y/%m/%d %H:%M:%S"
+style = "bg:color_black"
+format = '[[  $time ](fg:color_white bg:color_black)]($style)'
+
+[status]
+disabled = false
+symbol = ""
+style = "color_red"
+format = '[$symbol exit code: $status]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color_green)'
+error_symbol = '[❯](bold fg:color_red)'
+vimcmd_symbol = '[❮](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:color_red)'
+vimcmd_replace_symbol = '[❮](bold fg:color_red)'
+vimcmd_visual_symbol = '[❮](bold fg:color_yellow)'
+

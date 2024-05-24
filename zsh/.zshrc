@@ -1,0 +1,89 @@
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
+zinit light zsh-users/zsh-completions
+
+#
+# Homebrew
+#
+
+autoload -U compinit; compinit
+autoload -U bashcompinit && bashcompinit
+
+#
+# Starship
+#
+
+eval "$(starship init zsh)"
+
+#
+# mise
+#
+
+eval "$(mise activate --shims)"
+
+#
+# completions
+#
+
+## AWS CLI / aws-vault / terraform
+complete -C aws_completer aws
+eval "$(curl -fs https://raw.githubusercontent.com/99designs/aws-vault/master/contrib/completions/zsh/aws-vault.zsh)"
+complete -o nospace -C terraform terraform
+
+## kubectl / helm / helmfile / argocd
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(helmfile completion zsh)
+source <(argocd completion zsh)
+#kind completion zsh > /opt/homebrew/share/zsh/site-functions/_kind
+
+#
+# history
+#
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt share_history
+
+#
+# path
+#
+
+# remove duplicate path
+typeset -U path
+
+#
+# aliases
+#
+alias ls='gls --color=auto'
+alias ll='ls -l'
+alias la='ls -la'
+alias vim='nvim'
+alias dk='docker'
+alias k='kubectl'
+alias h='helm'
+alias hf='helmfile'
+alias myip='curl -s https://ifconfig.io'

@@ -1,0 +1,12 @@
+[user]
+	name = Akihiro Kaji
+	email = safinfingg@gmail.com
+[alias]
+	sw = switch
+	ci = commit -m
+	br = branch
+	st = status
+[init]
+	defaultBranch = main
+[pager]
+	diff = cat

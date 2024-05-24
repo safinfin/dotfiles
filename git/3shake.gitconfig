@@ -1,0 +1,12 @@
+[user]
+	name = Akihiro Kaji
+	email = akihiro.kaji@3-shake.com
+[alias]
+	sw = switch
+	ci = commit -m
+	br = branch
+	st = status
+[init]
+	defaultBranch = main
+[pager]
+	diff = cat
