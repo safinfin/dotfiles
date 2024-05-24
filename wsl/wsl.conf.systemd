@@ -1,0 +1,11 @@
+[automount]
+options = "metadata,umask=22,fmask=11"
+
+[boot]
+systemd = true
+
+[interop]
+appendWindowsPath = false
+
+[user]
+default = akihiro_kaji
