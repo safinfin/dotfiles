@@ -68,7 +68,7 @@ powershell:
 	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/.config ]; then\
 		mkdir -p $$(wslpath "$$(wslvar USERPROFILE)")/.config;\
 	fi
-	cp ./starship/starship.toml $$(wslpath "$$(wslvar USERPROFILE)")/starship/starship.toml
+	cp ./starship/starship.toml $$(wslpath "$$(wslvar USERPROFILE)")/.config/starship.toml
 
 .PHONY: wsl
 wsl: wsl-base wsl-config wsl-symlink
