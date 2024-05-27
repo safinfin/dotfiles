@@ -24,7 +24,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
     echo "##################################################"
     bash ./macos.sh
 
-elif [[ "$(uname)" == 'Linux' ]]; then
+else
   if [[ "$(uname -r)" == *microsoft* ]]; then
 
     echo "##################################################"
@@ -64,5 +64,4 @@ elif [[ "$(uname)" == 'Linux' ]]; then
     chmod +x "${HOME}"/bin/wsl2-ssh-agent
 
   fi
-else
 fi

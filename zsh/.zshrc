@@ -69,6 +69,22 @@ setopt hist_ignore_dups
 setopt share_history
 
 #
+# WSL2
+#
+if [[ "$(uname -r)" == *microsoft* ]]; then
+  # set path for windows apps
+  export PATH="$PATH:/mnt/c/Users/akihiro_kaji/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Windows:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
+
+  # WSL2 ssh agent
+  eval $($HOME/bin/wsl2-ssh-agent)
+
+  # set aws-vault environment variables
+  export AWS_VAULT_BACKEND=pass
+  export AWS_VAULT_PASS_PREFIX=aws-vault
+  export AWS_SESSION_TOKEN_TTL=3h
+fi
+
+#
 # path
 #
 
