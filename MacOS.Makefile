@@ -13,6 +13,7 @@ brew:
 .PHONY: zsh
 zsh:
 	@echo "Setting up Zsh"
+	@rm -f $(HOME)/.zshrc
 	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME) zsh
 	sudo chsh $(USER) -s /opt/homebrew/bin/zsh
 
@@ -24,8 +25,8 @@ git:
 .PHONY: nvim
 nvim:
 	@echo "Setting up NeoVim"
-	@if [[ ! -d $(HOME)/.config/nvim ]]; then
-		mkdir $(HOME)/.config/nvim
+	@if [ ! -d $(HOME)/.config/nvim ]; then;\
+		mkdir $(HOME)/.config/nvim;\
 	fi
 	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
 
@@ -37,8 +38,8 @@ starship:
 .PHONY: mise
 mise:
 	@echo "Setting up mise"
-	@if [[ ! -d $(HOME)/.config/mise ]]; then
-		mkdir $(HOME)/.config/mise
+	@if [ ! -d $(HOME)/.config/mise ]; then;\
+		mkdir $(HOME)/.config/mise;\
 	fi
 	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/mise mise
 
@@ -51,8 +52,8 @@ dircolors:
 .PHONY: wezterm
 wezterm:
 	@echo "Setting up WezTerm"
-	@if [[ ! -d $(HOME)/.config/wezterm ]]; then
-		mkdir $(HOME)/.config/wezterm
+	@if [ ! -d $(HOME)/.config/wezterm ]; then
+		mkdir $(HOME)/.config/wezterm;\
 	fi
 	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/wezterm wezterm
 
