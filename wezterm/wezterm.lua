@@ -15,7 +15,7 @@ config.freetype_load_flags = "NO_HINTING"
 -- prog
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   local launch_menu = {}
-  config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "~"}
+  config.default_prog = { "wsl.exe", "-d", "Ubuntu-22.04", "--cd", "~"}
   table.insert(launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
   config.launch_menu = launch_menu
 end
