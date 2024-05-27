@@ -23,6 +23,10 @@ zinit light-mode for \
 
 zinit light zsh-users/zsh-completions
 
+if [[ -d "$HOME/bin" ]]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
 #
 # Homebrew
 #
@@ -71,6 +75,7 @@ setopt share_history
 #
 # WSL2
 #
+
 if [[ "$(uname -r)" == *microsoft* ]]; then
   # set path for windows apps
   export PATH="$PATH:/mnt/c/Users/akihiro_kaji/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Windows:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
@@ -82,11 +87,11 @@ if [[ "$(uname -r)" == *microsoft* ]]; then
   export AWS_VAULT_BACKEND=pass
   export AWS_VAULT_PASS_PREFIX=aws-vault
   export AWS_SESSION_TOKEN_TTL=3h
-fi
 
-#
-# path
-#
+  # aliases for win32yank
+  alias pbcopy='win32yank.exe -i'
+  alias pbpaste='win32yank.exe -o'
+fi
 
 # remove duplicate path
 typeset -U path
