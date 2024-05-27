@@ -25,7 +25,7 @@ git:
 .PHONY: nvim
 nvim:
 	@echo "Setting up NeoVim"
-	@if [ ! -d $(HOME)/.config/nvim ]; then;\
+	@if [ ! -d $(HOME)/.config/nvim ]; then\
 		mkdir $(HOME)/.config/nvim;\
 	fi
 	@eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
@@ -52,7 +52,7 @@ dircolors:
 .PHONY: wezterm
 wezterm:
 	@echo "Setting up WezTerm"
-	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm ]; then;\
+	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm ]; then\
 		mkdir $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm;\
 	fi
 	cp $(HOME)/.config/dotfiles/wezterm/wezterm.lua $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm/wezterm.lua
@@ -61,11 +61,11 @@ wezterm:
 .PHONY: powershell
 powershell:
 	@echo "Setting up PowerShell"
-	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell ]; then;\
+	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell ]; then\
 		mkdir $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell;\
 	fi
 	cp $(HOME)/.config/wsl-dotfiles/powershell/Microsoft.PowerShell_profile.ps1 $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes ]; then;\
+	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes ]; then\
 		mkdir -p $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes;\
 	fi
 	cp $(HOME)/.config/wsl-dotfiles/starship/starship.toml $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes
