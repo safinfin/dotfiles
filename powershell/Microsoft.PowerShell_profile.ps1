@@ -1,5 +1,4 @@
 # Starship
-$ENV:STARSHIP_CONFIG = "C:\Users\akihiro_kaji\starship\themes\custom.toml"
 Invoke-Expression (&starship init powershell)
 
 Set-PSReadLineOption -EditMode Emacs

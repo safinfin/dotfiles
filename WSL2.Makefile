@@ -53,10 +53,10 @@ dircolors:
 wezterm:
 	@echo "Setting up WezTerm"
 	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm ]; then\
-		mkdir $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm;\
+		mkdir -p $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm;\
 	fi
-	cp $(HOME)/.config/dotfiles/wezterm/wezterm.lua $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm/wezterm.lua
-	cp $(HOME)/.config/dotfiles/wezterm/keybinds.lua $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm/keybinds.lua
+	cp ./wezterm/wezterm.lua $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm/wezterm.lua
+	cp ./wezterm/keybinds.lua $$(wslpath "$$(wslvar USERPROFILE)")/.config/wezterm/keybinds.lua
 
 .PHONY: powershell
 powershell:
@@ -64,11 +64,11 @@ powershell:
 	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell ]; then\
 		mkdir $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell;\
 	fi
-	cp $(HOME)/.config/wsl-dotfiles/powershell/Microsoft.PowerShell_profile.ps1 $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes ]; then\
-		mkdir -p $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes;\
+	cp ./powershell/Microsoft.PowerShell_profile.ps1 $$(wslpath "$$(wslvar USERPROFILE)")/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+	@if [ ! -d $$(wslpath "$$(wslvar USERPROFILE)")/.config ]; then\
+		mkdir -p $$(wslpath "$$(wslvar USERPROFILE)")/.config;\
 	fi
-	cp $(HOME)/.config/wsl-dotfiles/starship/starship.toml $$(wslpath "$$(wslvar USERPROFILE)")/starship/themes
+	cp ./starship/starship.toml $$(wslpath "$$(wslvar USERPROFILE)")/starship/starship.toml
 
 .PHONY: wsl
 wsl: wsl-base wsl-config wsl-symlink
