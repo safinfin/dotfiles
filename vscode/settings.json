@@ -125,5 +125,7 @@
     "textlint.languages": [
       "markdown"
     ],
-    "editor.fontSize": 14
+    "editor.fontSize": 14,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "hediet.vscode-drawio.resizeImages": null
   }
