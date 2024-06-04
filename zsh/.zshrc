@@ -23,14 +23,23 @@ zinit light-mode for \
 
 zinit light zsh-users/zsh-completions
 
+#
+# path
+#
 if [[ -d "$HOME/bin" ]]; then
   export PATH="$HOME/bin:$PATH"
 fi
 
 #
-# Homebrew
+# key binds / options
 #
-
+bindkey -e
+setopt globdots
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt share_history
 autoload -U compinit; compinit
 autoload -U bashcompinit && bashcompinit
 
@@ -61,16 +70,6 @@ source <(helm completion zsh)
 source <(helmfile completion zsh)
 source <(argocd completion zsh)
 #kind completion zsh > /opt/homebrew/share/zsh/site-functions/_kind
-
-#
-# history
-#
-
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_dups
-setopt share_history
 
 #
 # WSL2
