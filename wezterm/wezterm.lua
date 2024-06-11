@@ -20,7 +20,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.launch_menu = launch_menu
 end
 
-config.color_scheme = 'iceberg-light'
+config.color_scheme = 'Catppuccin Latte'
 config.hide_tab_bar_if_only_one_tab = true
 config.default_cursor_style = "BlinkingUnderline"
 config.window_close_confirmation = 'AlwaysPrompt'
