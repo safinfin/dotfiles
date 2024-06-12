@@ -27,6 +27,7 @@ set nocompatible
 call dein#add('arcticicestudio/nord-vim')
 call dein#add('folke/tokyonight.nvim')
 call dein#add('cocopon/iceberg.vim')
+call dein#add('catppuccin/nvim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('itchyny/vim-gitbranch')
 
@@ -85,10 +86,10 @@ set history=5000
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 set background=light
-colorscheme iceberg
+colorscheme catppuccin-latte
 
 let g:lightline = {
-  \ 'colorscheme': 'iceberg',
+  \ 'colorscheme': 'catppuccin',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
