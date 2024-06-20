@@ -140,5 +140,9 @@
   },
   "[helm]": {
     "editor.tabSize": 2
-  }
+  },
+  // catppuccin color theme settings
+  "catppuccin.italicComments": false,
+  "catppuccin.italicKeywords": false,
+  "catppuccin.accentColor": "sapphire"
 }
