@@ -112,6 +112,9 @@
   "[jsonc]": {
     "editor.tabSize": 2
   },
+  "[lua]": {
+    "editor.tabSize": 2
+  },
   "[markdown]": {
     "editor.formatOnSave": false,
     "editor.tabSize": 4,
@@ -141,8 +144,10 @@
   "[helm]": {
     "editor.tabSize": 2
   },
-  // catppuccin color theme settings
+  // catppuccin colorscheme settings
   "catppuccin.italicComments": false,
   "catppuccin.italicKeywords": false,
-  "catppuccin.accentColor": "sapphire"
+  "catppuccin.accentColor": "sapphire",
+  // everforest colorscheme settings
+  "everforest.italicComments": false
 }
