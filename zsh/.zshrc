@@ -59,9 +59,10 @@ eval "$(mise activate --shims)"
 # completions
 #
 
-## AWS CLI / aws-vault / terraform
-complete -C aws_completer aws
+## aws-vault
 eval "$(curl -fs https://raw.githubusercontent.com/99designs/aws-vault/master/contrib/completions/zsh/aws-vault.zsh)"
+
+## terraform
 complete -o nospace -C terraform terraform
 
 ## kubectl / helm / helmfile / argocd
@@ -69,7 +70,6 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 source <(helmfile completion zsh)
 source <(argocd completion zsh)
-#kind completion zsh > /opt/homebrew/share/zsh/site-functions/_kind
 
 #
 # WSL2
