@@ -37,10 +37,7 @@ return {
     { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
     { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
     { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
-    { key = 'H', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize{ 'Left', 10 } },
-    { key = 'L', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize{ 'Right', 10 } },
-    { key = 'K', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize{ 'Up', 10 } },
-    { key = 'J', mods = 'LEADER|SHIFT', action = act.AdjustPaneSize{ 'Down', 10 } },
+    { key = 'p', mods = 'LEADER', action = act.ActivateKeyTable{ name = 'resize_pane', one_shot = false } },
     { key = 'x', mods = 'LEADER', action = act.CloseCurrentPane{ confirm = true } },
     { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
     { key = 'Space', mods = 'LEADER', action = act.RotatePanes 'Clockwise' },
@@ -74,6 +71,14 @@ return {
   },
 
   key_tables = {
+    resize_pane = {
+      { key = 'H', mods ='NONE', action = act.AdjustPaneSize{ 'Left', 1 } },
+      { key = 'L', mods ='NONE', action = act.AdjustPaneSize{ 'Right', 1 } },
+      { key = 'K', mods ='NONE', action = act.AdjustPaneSize{ 'Up', 1 } },
+      { key = 'J', mods ='NONE', action = act.AdjustPaneSize{ 'Down', 1 } },
+      { key = 'Escape', mods ='NONE', action = 'PopKeyTable'}
+    },
+
     copy_mode = {
       { key = 'Tab', mods = 'NONE', action = act.CopyMode 'MoveForwardWord' },
       { key = 'Tab', mods = 'SHIFT', action = act.CopyMode 'MoveBackwardWord' },
