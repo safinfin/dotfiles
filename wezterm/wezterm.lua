@@ -26,6 +26,7 @@ config.default_cursor_style = "BlinkingUnderline"
 config.window_close_confirmation = 'AlwaysPrompt'
 config.audible_bell = "Disabled"
 config.enable_scroll_bar = true
+config.scrollback_lines = 10000
 
 -- keybinds
 config.disable_default_key_bindings = true
