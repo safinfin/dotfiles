@@ -90,6 +90,10 @@ if [[ "$(uname -r)" == *microsoft* ]]; then
   # aliases for win32yank
   alias pbcopy='win32yank.exe -i'
   alias pbpaste='win32yank.exe -o'
+elif [[ "$(uname)" == 'Darwin' ]]; then
+  # gcloud
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # remove duplicate path
