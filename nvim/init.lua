@@ -17,5 +17,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {})
 
 -- visual setup
-vim.opt.background = 'light'
-vim.cmd.colorscheme 'catppuccin'
+vim.opt.background = 'dark'
+vim.cmd.colorscheme 'everforest'
