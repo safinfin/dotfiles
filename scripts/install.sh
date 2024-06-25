@@ -22,7 +22,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
     echo "##################################################"
     echo "Others"
     echo "##################################################"
-    bash ./macos.sh
+    bash ./MacOS.sh
 
 else
   if [[ "$(uname -r)" == *microsoft* ]]; then
