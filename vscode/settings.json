@@ -56,6 +56,25 @@
   "workbench.colorTheme": "Everforest Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
+  //
+  // Extensions
+  //
+  // Ansible
+  "redhat.telemetry.enabled": false,
+  // GitHub Copilot
+  "github.copilot.editor.enableAutoCompletions": true,
+  // Draw.io
+  "hediet.vscode-drawio.resizeImages": null,
+  // catppuccin colorscheme settings
+  "catppuccin.italicComments": false,
+  "catppuccin.italicKeywords": false,
+  "catppuccin.accentColor": "sapphire",
+  // everforest colorscheme settings
+  "everforest.italicComments": false,
+  // indent-rainbow
+  "indentRainbow.indicatorStyle": "light",
+  // ShellCheck
+  "shellcheck.run": "onSave",
   // Python
   "python.analysis.typeCheckingMode": "basic",
   "black-formatter.args": [
@@ -101,10 +120,6 @@
   "textlint.languages": [
     "markdown"
   ],
-  // Extensions
-  "redhat.telemetry.enabled": false,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "hediet.vscode-drawio.resizeImages": null,
   // File Type
   "[json]": {
     "editor.tabSize": 2
@@ -143,11 +158,5 @@
   },
   "[helm]": {
     "editor.tabSize": 2
-  },
-  // catppuccin colorscheme settings
-  "catppuccin.italicComments": false,
-  "catppuccin.italicKeywords": false,
-  "catppuccin.accentColor": "sapphire",
-  // everforest colorscheme settings
-  "everforest.italicComments": false
+  }
 }
