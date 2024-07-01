@@ -77,7 +77,8 @@ format = '[ $user ]($style)'
 [directory]
 style = "fg:color_white bg:color_orange"
 format = "[   $path ]($style)"
-truncation_length = 3
+truncation_length = 5
+truncate_to_repo = true
 truncation_symbol = "…/"
 
 [git_branch]
