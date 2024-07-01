@@ -3,7 +3,9 @@ local config = wezterm.config_builder()
 local keybind = require 'keybinds'
 
 -- font
-config.font = wezterm.font ("UDEV Gothic NF", { weight="Regular", stretch="Normal", style="Normal" })
+config.font = wezterm.font_with_fallback {
+  'Moralerspace Neon NF'
+}
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.font_size = 10
 else
