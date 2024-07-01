@@ -8,7 +8,6 @@ $username\
 $directory\
 [](fg:color_orange bg:color_green)\
 $git_branch\
-$git_commit\
 $git_status\
 [](fg:color_green bg:color_aqua)\
 $c\
@@ -85,12 +84,6 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:color_green"
 format = '[[ $symbol $branch ](fg:color_white bg:color_green)]($style)'
-
-[git_commit]
-style = "bg:color_green"
-tag_disabled = false
-tag_symbol = " "
-format = '[[ $tag ](fg:color_white bg:color_green)]($style)'
 
 [git_status]
 style = "bg:color_green"
