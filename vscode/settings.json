@@ -3,7 +3,7 @@
   "editor.accessibilitySupport": "off",
   "editor.autoIndent": "full",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "UDEV Gothic NF",
+  "editor.fontFamily": "'Moralerspace Neon JPDOC', 'Moralerspace Neon NF'",
   "editor.fontSize": 14,
   "editor.formatOnSave": false,
   "editor.guides.indentation": true,
