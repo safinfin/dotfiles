@@ -24,31 +24,22 @@
     "**/*.pyc": true,
     "**/__pycache__": true
   },
-  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.linux": "zsh (login)",
   "terminal.integrated.profiles.linux": {
-    "bash": {
+    "bash (login)": {
       "path": "bash",
       "args": [
         "-l"
       ],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
+      "overrideName": true
     },
-    "zsh": {
+    "zsh (login)": {
       "path": "zsh",
       "args": [
         "-l"
-      ]
-    },
-    "fish": {
-      "path": "fish"
-    },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux"
-    },
-    "pwsh": {
-      "path": "pwsh",
-      "icon": "terminal-powershell"
+      ],
+      "overrideName": true
     }
   },
   "workbench.editor.empty.hint": "hidden",
