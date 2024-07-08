@@ -10,3 +10,5 @@
 	defaultBranch = main
 [pager]
 	diff = cat
+[ghq]
+	root = ~/workspace/src
