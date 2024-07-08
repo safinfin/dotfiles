@@ -4,7 +4,6 @@ local keybind = require 'keybinds'
 
 -- font
 config.font = wezterm.font_with_fallback {
-  'UDEV Gothic JPDOC',
   'UDEV Gothic NF'
 }
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
