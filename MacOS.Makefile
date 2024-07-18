@@ -3,7 +3,7 @@ install:
 	@./scripts/install.sh
 
 .PHONY: all
-all: brew zsh git nvim starship mise dircolors wezterm vscode
+all: brew zsh git starship mise dircolors wezterm vscode
 
 .PHONY: brew
 brew:
@@ -20,15 +20,15 @@ zsh:
 .PHONY: git
 git:
 	@echo "Setting up Git"
-	ln -sf $(CURDIR)/git/3shake.MacOS.gitconfig $(HOME)/.gitconfig
+	@ln -sf $(CURDIR)/git/3shake.MacOS.gitconfig $(HOME)/.gitconfig
 
-.PHONY: nvim
-nvim:
-	@echo "Setting up NeoVim"
-	@if [ ! -d $(HOME)/.config/nvim ]; then\
-		mkdir $(HOME)/.config/nvim;\
-	fi
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
+#.PHONY: nvim
+#nvim:
+#	@echo "Setting up NeoVim"
+#	@if [ ! -d $(HOME)/.config/nvim ]; then\
+#		mkdir $(HOME)/.config/nvim;\
+#	fi
+#	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
 
 .PHONY: starship
 starship:
@@ -46,8 +46,12 @@ mise:
 .PHONY: dircolors
 dircolors:
 	@echo "Setting up dircolors"
-	git clone https://github.com/arcticicestudio/nord-dircolors.git $(HOME)/.config/nord-dircolors
-	ln -sf $(HOME)/.config/nord-dircolors/src/dir_colors $(HOME)/.dircolors
+	@if [ -e $(HOME)/.config/nord-dircolors ]; then\
+		cd $(HOME)/.config/nord-dircolors && git pull;\
+	else\
+		git clone https://github.com/arcticicestudio/nord-dircolors.git $(HOME)/.config/nord-dircolors;\
+	fi
+	@ln -sf $(HOME)/.config/nord-dircolors/src/dir_colors $(HOME)/.dircolors
 
 .PHONY: wezterm
 wezterm:
@@ -60,4 +64,5 @@ wezterm:
 .PHONY: vscode
 vscode:
 	@echo "Setting up VSCode"
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t "$(HOME)/Library/Application\ Support/Code/User" vscode
+	@ln -sf $(CURDIR)/vscode/MacOS.settings.json $(HOME)/Library/Application\ Support/Code/User/settings.json
+	@ln -sf $(CURDIR)/vscode/keybindings.json $(HOME)/Library/Application\ Support/Code/User/keybindings.json
