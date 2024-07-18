@@ -1,23 +1,24 @@
-# dotfiles
+# dotfiles for MacOS/WSL2 Ubuntu
 
-## MacOS
+## Install
 
 1. Clone this repository
 
     ```sh
-    git clone https://github.com/safinfin/dotfiles.git ~/.config/dotfiles
+    mkdir ~/workspace
+    git clone https://github.com/safinfin/dotfiles.git ~/workspace/dotfiles
     ```
 
 1. Change directory to repository
 
     ```sh
-    cd ~/.config/dotfiles
+    cd ~/workspace/dotfiles
     ```
 
-1. Install
+1. Install all
 
     ```sh
-    make -f ./MacOS.Makefile install
+    make all
     ```
 
 ## WSL2
@@ -64,31 +65,18 @@ install windows tools
 1. Clone this repository
 
     ```sh
-    git clone https://github.com/safinfin/dotfiles.git ~/.config/dotfiles
+    mkdir ~/workspace
+    git clone https://github.com/safinfin/dotfiles.git ~/workspace/dotfiles
     ```
 
 1. Change directory to repository
 
     ```sh
-    cd ~/.config/dotfiles
+    cd ~/workspace/dotfiles
     ```
 
 1. Install
 
     ```sh
-    make -f WSL2.Makefile install
-    ```
-
-### VS Code
-
-1. copy settings.json
-
-    ```sh
-    cp ~/.config/wsl-dotfiles/vscode/settings.json $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Code/User/settings.json
-    ```
-
-1. copy keybindinds.json
-
-    ```sh
-    cp ~/.config/wsl-dotfiles/vscode/keybindings.json $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Code/User/keybindings.json
+    make all
     ```
