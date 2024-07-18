@@ -8,7 +8,7 @@
   "editor.formatOnSave": false,
   "editor.guides.indentation": true,
   "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 4,
