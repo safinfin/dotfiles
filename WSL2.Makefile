@@ -20,7 +20,7 @@ zsh:
 .PHONY: git
 git:
 	@echo "Setting up Git"
-	@ln -sf $(CURDIR)/git/private.WSL2.gitconfig $(HOME)/.gitconfig
+	@ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
 #.PHONY: nvim
 #nvim:
