@@ -8,13 +8,18 @@ all: brew zsh git starship mise dircolors wezterm vscode
 .PHONY: brew
 brew:
 	@echo "Installing brew packages"
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" brew bundle --file ./homebrew/MacOS.Brewfile
+	@eval "$$(/opt/homebrew/bin/brew shellenv)" && brew bundle --file ./homebrew/MacOS.Brewfile
 
 .PHONY: zsh
 zsh:
 	@echo "Setting up Zsh"
+	@if [ ! -d $(HOME)/.config/sheldon ]; then\
+		mkdir $(HOME)/.config/sheldon;\
+	fi
+	@ln -sf $(CURDIR)/sheldon/plugins.toml $(HOME)/.config/sheldon/plugins.toml
+	@ln -sf $(CURDIR)/zsh/.zprofile $(HOME)/.zprofile
 	@rm -f $(HOME)/.zshrc
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME) zsh
+	@ln -sf $(CURDIR)/zsh/.zshrc $(HOME)/.zshrc
 	sudo chsh $(USER) -s /opt/homebrew/bin/zsh
 
 .PHONY: git
@@ -22,18 +27,10 @@ git:
 	@echo "Setting up Git"
 	@ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
-#.PHONY: nvim
-#nvim:
-#	@echo "Setting up NeoVim"
-#	@if [ ! -d $(HOME)/.config/nvim ]; then\
-#		mkdir $(HOME)/.config/nvim;\
-#	fi
-#	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
-
 .PHONY: starship
 starship:
 	@echo "Setting up Starship"
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config starship
+	@ln -sf $(CURDIR)/starship/starship.toml $(HOME)/.config/starship.toml
 
 .PHONY: mise
 mise:
@@ -41,7 +38,7 @@ mise:
 	@if [ ! -d $(HOME)/.config/mise ]; then\
 		mkdir $(HOME)/.config/mise;\
 	fi
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/mise mise
+	@ln -sf $(CURDIR)/mise/config.toml $(HOME)/.config/mise/config.toml
 
 .PHONY: dircolors
 dircolors:
@@ -59,10 +56,11 @@ wezterm:
 	@if [ ! -d $(HOME)/.config/wezterm ]; then\
 		mkdir $(HOME)/.config/wezterm;\
 	fi
-	@eval "$$(/opt/homebrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/wezterm wezterm
+	@ln -sf $(CURDIR)/wezterm/wezterm.lua $(HOME)/.config/wezterm/wezterm.lua
+	@ln -sf $(CURDIR)/wezterm/keybinds.lua $(HOME)/.config/wezterm/keybinds.lua
 
 .PHONY: vscode
 vscode:
 	@echo "Setting up VSCode"
-	@ln -sf $(CURDIR)/vscode/MacOS.settings.json $(HOME)/Library/Application\ Support/Code/User/settings.json
+	@ln -sf $(CURDIR)/vscode/macOS.settings.json $(HOME)/Library/Application\ Support/Code/User/settings.json
 	@ln -sf $(CURDIR)/vscode/keybindings.json $(HOME)/Library/Application\ Support/Code/User/keybindings.json

@@ -1,18 +1,17 @@
 # dotfiles for MacOS/WSL2 Ubuntu
 
-## Install
+## Install on macOS
 
 1. Clone this repository
 
     ```sh
-    mkdir ~/workspace
-    git clone https://github.com/safinfin/dotfiles.git ~/workspace/dotfiles
+    git clone https://github.com/safinfin/dotfiles.git ~/dotfiles
     ```
 
 1. Change directory to repository
 
     ```sh
-    cd ~/workspace/dotfiles
+    cd ~/dotfiles
     ```
 
 1. Install all
@@ -65,14 +64,13 @@ install windows tools
 1. Clone this repository
 
     ```sh
-    mkdir ~/workspace
-    git clone https://github.com/safinfin/dotfiles.git ~/workspace/dotfiles
+    git clone https://github.com/safinfin/dotfiles.git ~/dotfiles
     ```
 
 1. Change directory to repository
 
     ```sh
-    cd ~/workspace/dotfiles
+    cd ~/dotfiles
     ```
 
 1. Install

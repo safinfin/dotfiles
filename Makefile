@@ -1,13 +1,10 @@
-OS := ""
 MAKEFILE := ""
 
 # Check OS
 ifeq ($(shell uname -s),Darwin)
-	OS := "MacOS"
-	MAKEFILE := "MacOS.Makefile"
+	MAKEFILE := "macOS.Makefile"
 else ifeq ($(shell uname -s),Linux)
 	ifneq (,$(findstring microsoft,$(shell uname -r)))
-		OS := "WSL2"
 		MAKEFILE := "WSL2.Makefile"
 	else
 		echo "Unsupported OS"

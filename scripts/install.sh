@@ -5,7 +5,7 @@
 os="$(uname)"
 kernel="$(uname -r)"
 
-# for MacOS
+# for macOS
 if [[ "${os}" == 'Darwin' ]]; then
 
     echo "##################################################"
@@ -26,21 +26,10 @@ if [[ "${os}" == 'Darwin' ]]; then
     fi
 
     echo "##################################################"
-    echo "Install Zinit"
-    echo "##################################################"
-
-    if [[ ! -e "${HOME}/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
-      bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-      sudo sed -i '/^# \/etc\/shells.*/a /opt/homebrew/bin/zsh' /etc/shells
-    else
-      echo "Zinit is already installed. skip."
-    fi
-
-    echo "##################################################"
     echo "Others"
     echo "##################################################"
 
-    bash ./MacOS.sh
+    bash ./macOS.sh
 
 elif [[ "${os}" == 'Linux' ]]; then
   # for WSL2 Ubuntu
@@ -62,17 +51,6 @@ elif [[ "${os}" == 'Linux' ]]; then
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     else
       echo "Homebrew is already installed. skip."
-    fi
-
-    echo "##################################################"
-    echo "Install Zinit"
-    echo "##################################################"
-
-    if [[ ! -e "${HOME}/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
-      bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-      sudo sed -i '/^# \/etc\/shells.*/a /home/linuxbrew/.linuxbrew/bin/zsh' /etc/shells
-    else
-      echo "Zinit is already installed. skip."
     fi
 
     echo "##################################################"

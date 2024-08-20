@@ -13,8 +13,13 @@ brew:
 .PHONY: zsh
 zsh:
 	@echo "Setting up Zsh"
+	@if [ ! -d $(HOME)/.config/sheldon ]; then\
+		mkdir $(HOME)/.config/sheldon;\
+	fi
+	@ln -sf $(CURDIR)/sheldon/plugins.toml $(HOME)/.config/sheldon/plugins.toml
+	@ln -sf $(CURDIR)/zsh/.zprofile $(HOME)/.zprofile
 	@rm -f $(HOME)/.zshrc
-	@eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME) zsh
+	@ln -sf $(CURDIR)/zsh/.zshrc $(HOME)/.zshrc
 	sudo chsh $(USER) -s /home/linuxbrew/.linuxbrew/bin/zsh
 
 .PHONY: git
@@ -22,18 +27,10 @@ git:
 	@echo "Setting up Git"
 	@ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
-#.PHONY: nvim
-#nvim:
-#	@echo "Setting up NeoVim"
-#	@if [ ! -d $(HOME)/.config/nvim ]; then\
-#		mkdir $(HOME)/.config/nvim;\
-#	fi
-#	@eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/nvim nvim
-
 .PHONY: starship
 starship:
 	@echo "Setting up Starship"
-	@eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config starship
+	@ln -sf $(CURDIR)/starship/starship.toml $(HOME)/.config/starship.toml
 
 .PHONY: mise
 mise:
@@ -41,7 +38,7 @@ mise:
 	@if [ ! -d $(HOME)/.config/mise ]; then\
 		mkdir $(HOME)/.config/mise;\
 	fi
-	@eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" stow -R -v -d . -t $(HOME)/.config/mise mise
+	@ln -sf $(CURDIR)/mise/config.toml $(HOME)/.config/mise/config.toml
 
 .PHONY: dircolors
 dircolors:

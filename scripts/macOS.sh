@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Setups for MacOS OS configuration
+# Setups for macOS OS configuration
 
 # Show hidden files in Finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
