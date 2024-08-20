@@ -20,7 +20,7 @@ zsh:
 .PHONY: git
 git:
 	@echo "Setting up Git"
-	@ln -sf $(CURDIR)/git/3shake.MacOS.gitconfig $(HOME)/.gitconfig
+	@ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
 #.PHONY: nvim
 #nvim:
